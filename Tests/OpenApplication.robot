@@ -22,8 +22,8 @@ Search For Product
   Press Keycode    66
   Wait Until Page Contains Element      ${first_product}
   Click Element                         ${first_product}
-  Wait Until Page Contains Element      ${端r端ne_git_button}
-  Click Element                         ${端r端ne_git_button}
+  Wait Until Page Contains Element      ${ürüne_git_button}
+  Click Element                         ${ürüne_git_button}
   Scroll To Takip Et Button
   Click Element    ${takip_et_button}
   Sleep  5
