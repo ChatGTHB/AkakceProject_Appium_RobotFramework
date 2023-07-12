@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../Resources/resources.robot
+Resource    ../Resources/Resources.robot
 
 
 *** Test Cases ***
