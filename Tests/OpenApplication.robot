@@ -1,28 +1,9 @@
 *** Settings ***
-Library  AppiumLibrary
-
-*** Variables ***
-#${pop_up_message}      id=com.akakce.akakce:id/framePopupLyt
-${pop_up_message}       id=framePopupLyt
-${search_input_field}   id=searchText
-${search_input_field2}  xpath=(//*[@resource-id='com.akakce.akakce:id/searchTextView'])[2]
-${first_product}        xpath=(//*[@resource-id='com.akakce.akakce:id/cellContainer'])[1]
-${ürüne_git_button}     id=detailBtnTextView
-${takip_et_button}      xpath=//*[@text='Takip Et']
-
-*** Keywords ***
-Scroll To Takip Et Button
-  ${isTakipEtButtonDisplayed}  Run Keyword And Return Status  Page Should Contain Element  ${takip_et_button}
-  WHILE    "${isTakipEtButtonDisplayed}" == "False"
-       Swipe By Percent    50    80    50    20
-       ${isTakipEtButtonDisplayed}  Run Keyword And Return Status  Page Should Contain Element  ${takip_et_button}
-  END
-  Click Element    ${takip_et_button}
-  Sleep    3
+Resource    ../Resources/resources.robot
 
 
 *** Test Cases ***
-Open Akakce Application
+Search For Product
   [Tags]    openApp
   Open Application
   ...  remote_url=http://localhost:4723
@@ -41,12 +22,27 @@ Open Akakce Application
   Press Keycode    66
   Wait Until Page Contains Element      ${first_product}
   Click Element                         ${first_product}
-  Wait Until Page Contains Element      ${ürüne_git_button}
-  Click Element                         ${ürüne_git_button}
+  Wait Until Page Contains Element      ${端r端ne_git_button}
+  Click Element                         ${端r端ne_git_button}
   Scroll To Takip Et Button
   Click Element    ${takip_et_button}
   Sleep  5
 
+Search For Bilgisayar
+  [Tags]    search
+  Open Akakce Application
+  Close Pop Up Message
+  Type Bilgisayar In The Search Box And Click Enter
+  Select First Product
+  Go To Selected Product
+  Scroll To Takip Et Button
+  Click On Takip Et Button
+  Verify Login Page Displayed
 
-
-
+Login Akakce Application
+  Open Akakce Application
+  Close Pop Up Message
+  Click On User Icon
+  Verify Login Page Displayed
+  Click On Hesap Olustur Button
+  Enter Register Details
