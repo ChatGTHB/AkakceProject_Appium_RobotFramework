@@ -1,0 +1,11 @@
+standard_user1:
+  name: "TestUserName"
+  surname: "TestUserSurname"
+  email: "testuser@example.com"
+  password: "Testing123!!"
+
+standard_user2:
+  name: "TestUserName2"
+  surname: "TestUserSurname2"
+  email: "testuser2@example.com"
+  password: "Testing123!!"
